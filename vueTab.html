@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .clearfix:after{
+        content: '';
+        display:block;
+        clear:both;
+        height: 0;
+    }
+    .clearfix{
+     zoom: 1;
+    }
+    .tab a{
+        display:block;
+        width:100px;
+        height: 20px;
+        background:yellow;
+        float:left
+    }
+    .tab .action{
+        background:red
+    }
+    .content div{
+        width: 200px;
+        height: 200px;
+        border:1px solid #333;
+    }
+</style>
+<div class="box">
+    <div class="tab clearfix">
+        <a href="javascript:;" :class="{'action':action===0}" @click="action=0">home</a>
+        <a href="javascript:;" :class="{'action':action=== 1}"   @click="action=1">about</a>
+        <a href="javascript:;" :class="{'action':action===2}"  @click="action=2  ">details</a>
+    </div>
+    <div class="content">
+        <div v-show="action===0">home</div>
+        <div v-show="action===1">aboout</div>
+        <div v-show="action===2">details</div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    new Vue({
+        el:'.box',
+        data:{
+            action:0
+        }
+    })
+</script>
+
+<!--<style>-->
+
+    <!--body{-->
+        <!--font-family:"Microsoft YaHei";-->
+    <!--}-->
+    <!--#tab{-->
+        <!--width: 600px;-->
+        <!--margin: 0 auto;-->
+    <!--}-->
+    <!--.tab-tit{-->
+        <!--font-size: 0;-->
+        <!--width: 600px;-->
+    <!--}-->
+    <!--.tab-tit a{-->
+        <!--display: inline-block;-->
+        <!--height: 40px;-->
+        <!--line-height: 40px;-->
+        <!--font-size: 16px;-->
+        <!--width: 25%;-->
+        <!--text-align: center;-->
+        <!--background: #ccc;-->
+        <!--color: #333;-->
+        <!--text-decoration: none;-->
+    <!--}-->
+    <!--.tab-tit .cur{-->
+        <!--background: #09f;-->
+        <!--color: #fff;-->
+    <!--}-->
+    <!--.tab-con div{-->
+        <!--border: 1px solid #ccc;-->
+        <!--height: 400px;-->
+        <!--padding-top: 20px;-->
+    <!--}-->
+<!--</style>-->
+<!--<body>-->
+<!--<div id="tab">-->
+
+    <!--<div class="tab-tit">-->
+        <!--&lt;!&ndash;点击设置curId的值  如果curId等于0，第一个a添加cur类名，如果curId等于1，第二个a添加cur类名，以此类推。添加了cur类名，a就会改变样式 @click,:class ,v-show这三个是vue常用的指令或添加事件的方式&ndash;&gt;-->
+        <!--<a href="javascript:;" @click="curId=0" :class="{'cur':curId===0}">html</a>-->
+        <!--<a href="javascript:;" @click="curId=1" :class="{'cur':curId===1}">css</a>-->
+        <!--<a href="javascript:;" @click="curId=2" :class="{'cur':curId===2}">javascript</a>-->
+        <!--<a href="javascript:;" @click="curId=3" :class="{'cur':curId===3}">vue</a>-->
+    <!--</div>-->
+    <!--<div class="tab-con">-->
+        <!--&lt;!&ndash;根据curId的值显示div,如果curId等于0，第一个div显示，其它三个div不显示。如果curId等于1，第二个div显示，其它三个div不显示。以此类推&ndash;&gt;-->
+        <!--<div v-show="curId===0">-->
+            <!--html<br/>-->
+        <!--</div>-->
+        <!--<div v-show="curId===1">-->
+            <!--css-->
+        <!--</div>-->
+        <!--<div v-show="curId===2">-->
+            <!--javascript-->
+        <!--</div>-->
+        <!--<div v-show="curId===3">-->
+            <!--vue-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+<!--<script>-->
+    <!--new Vue({-->
+        <!--el: '#tab',-->
+        <!--data: {-->
+            <!--curId: 0-->
+        <!--},-->
+        <!--computed: {},-->
+        <!--methods: {},-->
+        <!--mounted: function () {-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->
+</body>
+</html>
